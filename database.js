@@ -16,6 +16,18 @@ const CourseSchema = mongoose.Schema({
     },
     imageFormat: String,
   },
+  rating : {
+    type:Number,
+    required:true
+  },
+  createdOn : {
+    type: Number,
+    default:Date.now
+  },
+  category:{
+    type: String,
+    required:true
+  }
 });
 
 const Course = mongoose.model("Course", CourseSchema);

@@ -79,7 +79,9 @@ app.post("/create-course-content", async (req, res) => {
         dataUrl: req.body.image.dataUrl,
         imageFormat: req.body.image.imageFormat
       },
-      description: req.body.description
+      description: req.body.description,
+      rating: req.body.rating,
+      category: req.body.category
     });
 
     const newCourse = await course.save();
