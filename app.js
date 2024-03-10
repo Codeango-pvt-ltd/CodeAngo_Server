@@ -11,14 +11,22 @@ db = "mongodb+srv://riziuzi:E2zZfZlEoa8Zp2CJ@riziuzicluster.ulcokkb.mongodb.net/
 mongoose.connect(db)                                                                                   // MongoDB Atlas Connection
 .then(()=>{console.log("MongoDB Connected!")})
 .catch((error)=>{console.log(`OOPS! Some error -> ${error}`)})
-const allowedOrigins = ['CodeAngoFrontEndHostedServerLink', 'http://localhost:3001'];                  // CORS
+// const allowedOrigins = ['CodeAngoFrontEndHostedServerLink', '*'];                  // CORS
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);  // No error, origin is allowed
+//     } else {
+//       callback(new Error('Not allowed by CORS'));  // Error, origin is not allowed
+//     }
+//   },
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true,
+// };
 const corsOptions = {
   origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);  // No error, origin is allowed
-    } else {
-      callback(new Error('Not allowed by CORS'));  // Error, origin is not allowed
-    }
+    // Always allow all origins
+    callback(null, true);
   },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
